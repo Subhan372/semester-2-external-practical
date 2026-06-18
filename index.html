@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel or Consonant Checker</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 120px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Letter Checker</h2>
+        <input type="text" id="charInput" maxlength="1" placeholder="Enter a letter...">
+        <button onclick="checkLetter()">Check</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkLetter() {
+            const input = document.getElementById("charInput").value.toLowerCase();
+            const resultElement = document.getElementById("result");
+
+            
+            if (input === "") {
+                resultElement.textContent = "Please enter a letter first!";
+                resultElement.style.color = "orange";
+                return;
+            }
+
+            
+            if (input >= 'a' && input <= 'z') {
+                
+      
+                if (input === 'a' || input === 'e' || input === 'i' || input === 'o' || input === 'u') {
+                    resultElement.textContent = `'${input.toUpperCase()}' is a Vowel!`;
+                    resultElement.style.color = "green";
+                } else {
+           
+                    resultElement.textContent = `'${input.toUpperCase()}' is a Consonant!`;
+                    resultElement.style.color = "blue";
+                }
+
+            } else {
+             
+                resultElement.textContent = "Error: Please enter a valid letter (A-Z).";
+                resultElement.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
